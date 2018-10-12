@@ -67,3 +67,14 @@ ugly {
 	/* Standar Syntax */
 	animation: rainbow 3s infinite; 
 }
+
+body {
+		background: #4b3c72;
+}
+
+.pumpkin {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
