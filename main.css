@@ -72,9 +72,29 @@ body {
 		background: #4b3c72;
 }
 
+fcs {
+	font-family: "Comic Sans MS";
+}
+
+.text-negativ {
+	color: #D5CFE6;
+}
 .pumpkin {
 	display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+	margin-top: auto;
+	margin-bottom: auto;
+    width: 60%;
+}
+.time-code {
+	float: right;
+	color: #a6a6a6;
+}
+.text-middle {
+	text-align: center;
+}
+.center {
+	margin: auto;
+	width: 50%;
 }
