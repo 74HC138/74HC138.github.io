@@ -1,5 +1,10 @@
+@font-face { 
+	font-family: 'comicSans';
+    src: url('font/comic_sans.ttf') format('truetype'); 
+}
+
 brand-font {
-	font-family: "Comic Sans MS";
+	font-family: "comicSans";
 	color: blue;
 }
 
@@ -53,7 +58,7 @@ rnbw {
 }
 
 ugly {
-	font-family: "Comic Sans MS";
+	font-family: "comicSans";
 	top: 50%;
     left: 50%;
     margin-right: -50%;
@@ -73,7 +78,7 @@ body {
 }
 
 fcs {
-	font-family: "Comic Sans MS";
+	font-family: "comicSans";
 }
 
 .text-negativ {
