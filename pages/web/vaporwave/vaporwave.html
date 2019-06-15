@@ -65,6 +65,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	<script>
 	  document.addEventListener('click', musicPlay);
+	  init();
 	  function musicPlay() {
 		document.getElementById('music_player').play();
 		document.removeEventListener('click', musicPlay);
@@ -81,7 +82,16 @@
 		  audio.pause();
 		  dsp.innerHTML = "【ＣＬＩＣＫ ＴＯ ＰＬ  Λ  Ｙ】";
 		}
-	  };
+	  }
+	  function init() {
+		var audio = document.getElementById("music_player");
+		var dsp = document.getElementById("music_state");
+		if (audio.duration > 0 && !audio.paused) {
+		  dsp.innerHTML = "【ＣＬＩＣＫ ＴＯ Ｐ  Λ  ＵＳ  Σ  】";
+		} else {
+		  dsp.innerHTML = "【ＣＬＩＣＫ ＴＯ ＰＬ  Λ  Ｙ】";
+		}
+	  }
 	</script>
   </body>
 </html>
