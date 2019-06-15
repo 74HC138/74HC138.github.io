@@ -33,7 +33,7 @@ void tinty(int y) {
   //fill(255);
 }
 float toZ(float z, int x, int y) {
-  return (z*40)+map(y, 0, sy+10, height/10, (height/4)*3)+(sin((float)(x-y)/40+mult))*15;//+curveFunktion(x,y);
+  return (z*80)+map(y, 0, sy+10, height/10, (height/4)*3)+(sin((float)(x-y)/20+mult))*20;//+curveFunktion(x,y);
 }
 
 void setup() {
