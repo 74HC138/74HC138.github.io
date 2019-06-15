@@ -1,7 +1,6 @@
 var canvasX = window.innerWidth;
 car canvasY = window.innerHeight;
 
-
 //vaporwave
 int sx = 120;
 int sy = 100;
@@ -41,10 +40,11 @@ float toZ(float z, int x, int y) {
 }
 
 void setup() {
+  SimplexNoise();
   size(canvasX, canvasY, P3D);
   for (int i = 0; i < sx; i++) {
     for (int a = 0; a < sy; a++) {
-      points[i][a] = noise((float)i/2,(float)a/2);
+      points[i][a] = SimplexNoise.prototype.noise((float)i/2,(float)a/2);
     }
   }
   colorMode(HSB, 360, 100, 100);
