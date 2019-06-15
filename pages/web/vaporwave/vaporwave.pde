@@ -36,7 +36,7 @@ float toZ(float z, int x, int y) {
 }
 
 void setup() {
-  size(800, 600, P3D);
+  fullScreen(P3D);
   for (int i = 0; i < sx; i++) {
     for (int a = 0; a < sy; a++) {
       points[i][a] = noise((float)i/2,(float)a/2);
