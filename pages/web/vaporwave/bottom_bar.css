@@ -3,12 +3,23 @@
 	bottom: 10px;
 	color: #ffffff;
 	text-shadow: -3px 0px 0px cyan;
-	-webkit-animation: pulsing 10s infinite;
-	animation: pulsing 10s infinite;
+	-webkit-animation: pulsing 8s infinite;
+	animation: pulsing 8s infinite;
 	font-size: 30px;
 	font-family: 'monofur italic';
 	width:100%;
     text-align:center;
+}
+
+.turndark {
+	-webkit-animation-delay: 8s;
+	animation-delay: 8s;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+	-webkit-animation-name: dark;
+	animation-name: dark;
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
 }
 
 @font-face {
@@ -23,4 +34,14 @@
 
 @keyframes pulsing {
   50% {opacity: 0;}
+}
+
+@-webkit-keyframes dark {
+  50%  {background-color: rgba(255, 255, 255, 1)}
+  100% {background-color: rgba(255, 255, 255, 0.1)}
+}
+
+@keyframes dark {
+  50%  {background-color: rgba(255, 255, 255, 1)}
+  100% {background-color: rgba(255, 255, 255, 0.1)}
 }
