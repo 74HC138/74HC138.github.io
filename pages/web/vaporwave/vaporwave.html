@@ -11,7 +11,7 @@
 	<title>Coder's space</title>
 	<link rel="shortcut icon" href="../../../favicon.ico"/>
 	<link rel="shortcut icon" href="/favicon.ico"/>
-	<script type ="text/javascript" scr="perlin.js"></script>
+	<script type="application/javascript" scr="perlin.js"></script>
 	<script type="text/javascript" src="processing.js"></script>
   </head>
   <body>
@@ -60,6 +60,8 @@
 		document.getElementById('music_player').play();
 		document.removeEventListener('click', musicPlay);
 	  }
+	</script>
+	<script type="application/javascript">
 	  function ns2d(var x, var y) {
 		return noise.simplex2(x, y);
 	  }
