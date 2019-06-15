@@ -1,3 +1,4 @@
+//vaporwave
 int sx = 120;
 int sy = 100;
 float mult;
@@ -36,7 +37,7 @@ float toZ(float z, int x, int y) {
 }
 
 void setup() {
-  fullScreen(P3D);
+  size(1366, 768, P3D);
   for (int i = 0; i < sx; i++) {
     for (int a = 0; a < sy; a++) {
       points[i][a] = noise((float)i/2,(float)a/2);
