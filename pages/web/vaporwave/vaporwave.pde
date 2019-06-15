@@ -36,14 +36,14 @@ void tinty(int y) {
   //fill(255);
 }
 float toZ(float z, int x, int y) {
-  return (z*10)+map(y, 0, sy+10, height/10, (height/4)*3)+(sin((float)(x-y)/20+mult))*20;//+curveFunktion(x,y);
+  return (z*12)+map(y, 0, sy+10, height/10, (height/4)*3)+(sin((float)(x-y)/20+mult))*20+30;//+curveFunktion(x,y);
 }
 
 void setup() {
   size(canvasX, canvasY, P3D);
   for (int i = 0; i < sx; i++) {
     for (int a = 0; a < sy; a++) {
-      points[i][a] = ns2d((float)i/2,(float)a/2);
+      points[i][a] = ns2d((float)i/4,(float)a/4);
     }
   }
   colorMode(HSB, 360, 100, 100);
