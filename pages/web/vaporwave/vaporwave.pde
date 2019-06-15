@@ -1,3 +1,7 @@
+var canvasX = window.innerWidth;
+car canvasY = window.innerHeight;
+
+
 //vaporwave
 int sx = 120;
 int sy = 100;
@@ -37,7 +41,7 @@ float toZ(float z, int x, int y) {
 }
 
 void setup() {
-  size(1366, 768, P3D);
+  size(canvasX, canvasY, P3D);
   for (int i = 0; i < sx; i++) {
     for (int a = 0; a < sy; a++) {
       points[i][a] = noise((float)i/2,(float)a/2);
