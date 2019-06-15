@@ -60,6 +60,9 @@
 		document.getElementById('music_player').play();
 		document.removeEventListener('click', musicPlay);
 	  }
+	  function ns2d(var x, var y) {
+		return noise.simplex2(x, y);
+	  }
 	</script>
   </body>
 </html>

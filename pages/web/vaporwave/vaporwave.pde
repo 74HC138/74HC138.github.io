@@ -1,6 +1,5 @@
 var canvasX = window.innerWidth;
 var canvasY = window.innerHeight;
-var noisefn = noise.simplex2;
 
 //vaporwave
 int sx = 120;
@@ -44,7 +43,7 @@ void setup() {
   size(canvasX, canvasY, P3D);
   for (int i = 0; i < sx; i++) {
     for (int a = 0; a < sy; a++) {
-      points[i][a] = noisefn((float)i/2,(float)a/2);
+      points[i][a] = ns2d((float)i/2,(float)a/2);
     }
   }
   colorMode(HSB, 360, 100, 100);
