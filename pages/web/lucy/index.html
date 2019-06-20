@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="../../../main.css">
+	<title>draw me and i'll put it on my website</title>
+	<link rel="shortcut icon" href="../../../favicon.ico"/>
+	<link rel="shortcut icon" href="/favicon.ico"/>
+	<link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+	<div style="z-index:1;position:relative">
+	  <nav class="navbar navbar-expand-sm navbar-light bg-light turndark">
+		  <a href="../../../index.html" class="navbar-left"><img id="navbar_image" src="../../../img/enter.png"></a>
+		  <a class="navbar-brand" href="../../../ugly.html"><brand-font><rnbw>Coder's space<rnbw></brand-font></a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+		  	  <a class="nav-link" href="../../../index.html">Home </a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="../../projects/projects.html">Projects </a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="../../about/about.html">About</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="../../downloads/downloads.html">Downloads </a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="../../logs/logs.html">Logs</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="../../sources/sources.html">Sources</a>
+			</li>
+			</ul>
+		  </div>
+	  </nav>
+	</div>
+	<image src="images/lucy.png" class="center imagerotate" id="mainimage">
+	<div class="background">
+		<image src="backgrounds/background1.jpg" style="width:150%" class="slowsweep">
+	</div>
+  </body>
+  <script>
+	element = document.getElementById("mainimage");
+	var bg = document.querySelector(".slowsweep"),
+	transitionEvent = whichTransitionEvent();
+	bg.addEventListener(transitionEvent, alertEnd);
+	function alertEnd() {
+		alert("slowsweep has ended");
+	}
+	
+	element.addEventListener("click", function(e) {
+		e.preventDefault;
+		restartAnim();
+	}, false);
+	function restartAnim() {
+		// -> removing the class
+		element.classList.remove("imagerotate");
+		// -> triggering reflow /* The actual magic */
+		// without this it wouldn't work. Try uncommenting the line and the transition won't be retriggered.
+		// Oops! This won't work in strict mode. Thanks Felis Phasma!
+		// element.offsetWidth = element.offsetWidth;
+		// Do this instead:
+		void element.offsetWidth;
+		// -> and re-adding the class
+		element.classList.add("imagerotate");
+		css(".imagerotate", "animation-play-state", "running");
+		element.src="images/"+getRandomImage();
+	};
+	function getRandomImage() {
+		var images = ["lucy.png", "image2.jpg", "image3.jpg", "image4.jpg"];
+		return images[Math.floor((Math.random() * 4))];
+	}
+	function whichTransitionEvent(){
+	  var t,
+		  el = document.createElement("fakeelement");
+
+	  var transitions = {
+		"transition"      : "transitionend",
+		"OTransition"     : "oTransitionEnd",
+		"MozTransition"   : "transitionend",
+		"WebkitTransition": "webkitTransitionEnd"
+	  }
+
+	  for (t in transitions){
+		if (el.style[t] !== undefined){
+		  return transitions[t];
+		}
+	  }
+	}
+		
+	function Sleep(milliseconds) {
+		return new Promise(resolve => setTimeout(resolve, milliseconds));
+	}	
+  
+  
+	(function (scope) {
+		// Create a new stylesheet in the bottom
+		// of <head>, where the css rules will go
+		var style = document.createElement('style');
+		document.head.appendChild(style);
+		var stylesheet = style.sheet;
+		scope.css = function (selector, property, value) {
+			// Append the rule (Major browsers)
+			try { stylesheet.insertRule(selector+' {'+property+':'+value+'}', stylesheet.cssRules.length);
+			} catch(err) {try { stylesheet.addRule(selector, property+':'+value); // (pre IE9)
+			} catch(err) {console.log("Couldn't add style");}} // (alien browsers)
+		}
+	})(window);
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	
+</html>
