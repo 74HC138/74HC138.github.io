@@ -1,0 +1,70 @@
+.sketch {
+	filter: blur(1px);
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:-1;
+	width:100%;
+	height:100%;
+}
+
+body {
+	overflow-x: hidden;
+	margin: 0px;
+}
+
+.turndark {
+	-webkit-animation-delay: 8s;
+	animation-delay: 8s;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+	-webkit-animation-name: dark;
+	animation-name: dark;
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+}
+.turndark-text {
+	-webkit-animation-delay: 8s;
+	animation-delay: 8s;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+	-webkit-animation-name: dark-text;
+	animation-name: dark-text;
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+}
+
+@keyframes dark {
+  50%  {background-color: rgba(255, 255, 255, 1)}
+  100% {background-color: rgba(255, 255, 255, 0.1)}
+}
+@keyframes dark-text {
+  50%  {opacity: 1.0;}
+  100% {opacity: 0.3;}
+}
+@keyframes pulsing {
+  50% {opacity: 0;}
+}
+@font-face {
+	font-family: 'monofur italic';
+	src: url('monof56.ttf') format('truetype');
+}
+.bottom_bar {
+	position: fixed;
+	bottom: 10px;
+	color: #ffffff;
+	text-shadow: -3px 0px 0px cyan;
+	-webkit-animation: pulsing 8s infinite;
+	animation: pulsing 8s infinite;
+	font-size: 30px;
+	font-family: 'monofur italic';
+	width:100%;
+    text-align:center;
+	z-index:0;
+}
+.shadow-left {
+	text-shadow: -3px 0px 0px cyan;
+}
+.shadow-right {
+	text-shadow: 3px 0px 0px red;
+}
