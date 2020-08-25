@@ -1,0 +1,22 @@
+<!--
+get https://www.freevisitorcounters.com/en/home/counter/737672/t/3 = counter + 1
+get https://www.freevisitorcounters.com/en/home/stats/id/737672 [line(<td>All</td>) +1] = counter
+-->
+
+<html>
+    <head>
+        <title>counter</title>
+        <script type="text/javascript" src="scripts/counter.js"></script>
+    </head>
+    <body onload="updateAll()">
+        <div>
+            <div style="float: left ;width: auto;">
+                <h3 id="button" onclick="handlebutton(0, 'counter')">click to increment</h3>
+                <h3 id="counter">0</h3>
+            </div>
+            <div style="float:right ;width: auto;">
+                <h3 id="update" onclick="updateCounter(0, 'counter')">click to update counter</h3>
+            </div>
+        </div>
+    </body>
+</html>
