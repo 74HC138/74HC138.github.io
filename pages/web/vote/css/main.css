@@ -1,0 +1,61 @@
+.container {
+    width: 100%;
+
+}
+.entry {
+    position: relative;
+    left: 100%;
+    top: 0%;
+    opacity: 0;
+    background-color: darkgray;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+@keyframes swipe_out_left {
+    from {
+        left: 0%;
+        top: 0%;
+        opacity: 1;
+    }
+    to {
+        left: -100%;
+        top: 0;
+        opacity: 0;
+    }
+}
+@keyframes swipe_out_right {
+    from {
+        left: 0%;
+        top: 0;
+        opacity: 1;
+    }
+    to {
+        left: 100%;
+        top: 0%;
+        opacity: 0;
+    }
+}
+@keyframes swipe_in_left {
+    from {
+        left: -100%;
+        top: 0%;
+        opacity: 0;
+    }
+    to {
+        left: 0%;
+        top: 0%;
+        opacity: 1;
+    }
+}
+@keyframes swipe_in_right {
+    from {
+        left: 100%;
+        top: 0%;
+        opacity: 0;
+    }
+    to {
+        left: 0%;
+        top: 0%;
+        opacity: 1;
+    }
+}

@@ -6,16 +6,24 @@ get https://www.freevisitorcounters.com/en/home/stats/id/737672 [line(<td>All</t
 <html>
     <head>
         <title>counter</title>
+        <link rel="stylesheet" type="text/css" href="css/main.css">
         <script type="text/javascript" src="scripts/counter.js"></script>
     </head>
-    <body onload="updateAll()">
-        <div>
-            <div style="float: left ;width: auto;">
+    <body onload="init()">
+        <button onclick="nextSlideRight()">next slide</button>
+        <div class="container">
+            <div class="entry">
                 <h3 id="button" onclick="handlebutton(0, 'counter')">click to increment</h3>
                 <h3 id="counter">0</h3>
             </div>
-            <div style="float:right ;width: auto;">
+            <div class="entry">
                 <h3 id="update" onclick="updateCounter(0, 'counter')">click to update counter</h3>
+            </div>
+            <div class="entry">
+                <h3>another entry</h3>
+            </div>
+            <div class="entry">
+                <h3>noch einer</h3>
             </div>
         </div>
     </body>
