@@ -19,23 +19,67 @@ get https://www.freevisitorcounters.com/en/home/stats/id/737672 [line(<td>All</t
                 <h2 style="margin: 0">Votator</h2>
             </div>
             <div class="navbar_item" style="float: right">
-                <button class="navbar_button" onclick="handleShare()">Seite teilen</button>
+                <button class="navbar_button" style="background-color: green;" onclick="shareBoxOut()">Seite teilen</button>
+            </div>
+        </div>
+        <div class="share_box" id="share_box">
+            <h2 style="text-align: center;">Teile diese Umfrage mit deinen Freunden</h2>
+            <button onclick="shareBoxIn()" style="position: absolute; bottom: 8px; width: 90%; left: 5%;">close</button>
+            <div style="position: relative;" id="share_options_container">
+                <div style="width: 50%; border-color: black; border-style: solid; border-width: 2px; margin-right: -3px; margin-left: -3px; height:100%">
+                    <h3 style="text-align: center;">Per QR Code</h3>
+                    <img src="src/qrcode.png" id="share_box_qr">
+                </div>
+                <div id="share_box_whatsapp" style="width: 50%; border-color: black; border-style: solid; border-width: 2px; margin-left: -3px; margin-right: -3px;">
+                    <h3 style="text-align: center;">Oder Whatsapp</h3>
+                    <a>share via whatsapp</a>
+                </div>
             </div>
         </div>
         <div class="container">
             <button onclick="nextSlideLeft()" class="buttonLeft"><</button>
             <div class="entry" style="background-color: lightpink; border-color: lightpink;">
-                <h3 id="button" onclick="handlebutton(0, 'counter')">click to increment</h3>
-                <h3 id="counter">0</h3>
+                <div style="display: inline-table">
+                    <button onclick="handleLike(0)">Like</button>
+                    <p id="like_counter_0">Loading</p>
+                </div>
+                <div style="display: inline-table;">
+                    <button onclick="handleDislike(0)">Dislike</button>
+                    <p id="dislike_counter_0">Loading</p>
+                </div>
             </div>
             <div class="entry">
-                <h3 id="update" onclick="updateCounter(0, 'counter')">click to update counter</h3>
+                <div style="display: inline-table">
+                    <button onclick="handleLike(1)">Like</button>
+                    <p id="like_counter_1">Loading</p>
+                </div>
+                <div style="display: inline-table;">
+                    <button onclick="handleDislike(1)">Dislike</button>
+                    <p id="dislike_counter_1">Loading</p>
+                </div>
             </div>
             <div class="entry">
-                <h3>another entry</h3>
+                <div style="display: inline-table">
+                    <button onclick="handleLike(2)">Like</button>
+                    <p id="like_counter_2">Loading</p>
+                </div>
+                <div style="display: inline-table;">
+                    <button onclick="handleDislike(2)">Dislike</button>
+                    <p id="dislike_counter_2">Loading</p>
+                </div>
             </div>
             <div class="entry">
-                <h3>noch einer</h3>
+                <div style="display: inline-table">
+                    <button onclick="handleLike(3)">Like</button>
+                    <p id="like_counter_3">Loading</p>
+                </div>
+                <div style="display: inline-table;">
+                    <button onclick="handleDislike(3)">Dislike</button>
+                    <p id="dislike_counter_3">Loading</p>
+                </div>
+            </div>
+            <div class="entry" style="background-color: orangered; border-color: orangered;">
+                <h2 style="text-align: center;">Stats</h3>
             </div>
             <button onclick="nextSlideRight()" class="buttonRight">></button>
         </div>

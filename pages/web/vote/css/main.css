@@ -1,5 +1,7 @@
 body {
     margin: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 .buttonLeft {
     margin: 0;
@@ -41,6 +43,7 @@ body {
     border-style: solid;
     border-radius: 6px;
     padding: 2px;
+    overflow-y: auto;
 }
 @keyframes swipe_out_left {
     from {
@@ -97,12 +100,14 @@ body {
     position: relative;
     top: 0px;
     left: 0px;
+    z-index: 2;
 }
 .navbar_item {
     display: inline-table;
     background-color: inherit;
     margin-left: 5px;
     margin-right: 5px;
+    z-index: inherit;
 }
 .navbar_button {
     display: inherit;
@@ -111,5 +116,76 @@ body {
     margin-top: 2px;
     border-radius: 4px;
     text-align: center;
-    
+    border-color: black;
+    border-style: solid;
+    border-radius: 4px;
+    font-size: 17;
+    color: black;
+    z-index: inherit;
+}
+@keyframes share_box_in {
+    from {
+        top: 10%;
+        opacity: 1;
+    }
+    to {
+        top: -100%;
+        opacity: 0;
+    }
+}
+@keyframes share_box_out {
+    from {
+        top: -100%;
+        opacity: 0;
+    }
+    to {
+        top: 10%;
+        opacity: 1;
+    }
+}
+.share_box {
+    position: fixed;
+    top: -100%;
+    left: 5%;
+    opacity: 0;
+    width: 90%;
+    height: 80%;
+    z-index: 1;
+    background-color: white;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 6px;
+    padding: 2px;
+}
+
+/*desktop user*/
+@media (min-aspect-ratio: 9/5) {
+    #share_box_qr {
+        width: auto;
+        height: inherit;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #share_box_whatsapp {
+        right: 0%;
+        float: right;
+        height: 100%;
+        margin-top: -25%;
+    }
+    #share_options_container {
+        height: 50vh;
+    }
+}
+/*mobile user*/
+@media (max-aspect-ratio: 5/7) {
+    #share_box_qr {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: auto;
+        width: 75vw;
+        overflow-y: scroll;
+    }
 }

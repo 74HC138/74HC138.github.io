@@ -1,19 +1,22 @@
-let ID = [737672, 738178, 738179, 738180];
-var currentID = 0;
-var currentTextID = "";
+//interface code for counter hacki (hacky api)
+
+let CounterID = [[738178, 738197], [738180, 738602], [738603, 738604], [738605, 738606]]; //CounterID[n][0] == like id; CounterID[n][1] == dislike id
+let currentCount = [[0, 0], [0, 0], [0, 0], [0, 0]];
 var canVote = true;
-
 var displayedEntry = 0;
-
+//-------------------------------------------------------------------------
+//Helper functions
+//-------------------------------------------------------------------------
 var cors_api_url = 'https://cors-anywhere.herokuapp.com/';
 function doCORSRequest(options, printResult) {
     var x = new XMLHttpRequest();
     x.open(options.method, cors_api_url + options.url);
+    console.log("cors request with id "+options.IDn);
     x.onload = x.onerror = function() {
         printResult(
             options.method + ' ' + options.url + '\n' +
             x.status + ' ' + x.statusText + '\n\n' +
-            (x.responseText || '')
+            (x.responseText || ''), options.IDn
         );
     };
     if (/^POST/i.test(options.method)) {
@@ -36,7 +39,9 @@ function getCookie(cname) {
     }
     return "";
 }
-
+//-------------------------------------------------------------------------
+//Init functions
+//-------------------------------------------------------------------------
 function init() {
     var entry = document.getElementsByClassName("entry")[0];
     entry.style.opacity = 1.0;
@@ -53,9 +58,12 @@ function init() {
         //already voted
         canVote = false;
     }
+    canVote = true;
     updateAll();
 }
-
+//-------------------------------------------------------------------------
+//Interface functions
+//-------------------------------------------------------------------------
 function nextSlideRight() {
     document.getElementsByClassName("entry")[displayedEntry].style["animation-name"] = "swipe_out_left";
     document.getElementsByClassName("entry")[displayedEntry].style["opacity"] = 0;
@@ -70,44 +78,86 @@ function nextSlideLeft() {
     if (displayedEntry < 0) displayedEntry = document.getElementsByClassName("entry").length - 1;
     document.getElementsByClassName("entry")[displayedEntry].style["animation-name"] = "swipe_in_left";
 }
-
-function handlebutton(IDn, ButtonID) {
-    currentID = ID[IDn];
-    currentTextID = ButtonID;
-    if (getCookie("voted") == "true") {
+//-------------------------------------------------------------------------
+//Counter functions
+//-------------------------------------------------------------------------
+function updateAll() {
+    for (var i = 0; i < CounterID.length; i++) {
+        console.log("updating "+i)
+        updateLikeCounter(i);
+        updateDislikeCounter(i);
+    }
+}
+function handleLike(IDn) {
+    if (getCookie("voted") == "") {
         alert("you already voted");
     } else {
         document.cookie = "voted=true; expires=Tue, 19 Jan 2038 03:14:07 UTC";
         console.log("incrementing counter");
-        fetch("https://www.freevisitorcounters.com/en/home/counter/"+currentID+"/t/3").then(function(response) {}).then(function(data) {}).catch(function() {});
-        updateCounter(IDn, ButtonID);
+        fetch("https://www.freevisitorcounters.com/en/home/counter/"+CounterID[IDn][0]+"/t/3").then(function(response) {}).then(function(data) {}).catch(function() {});
+        updateLikeCounter(IDn);
+        updateDislikeCounter(IDn);
     }
 }
-function updateCounter(IDn, ButtonID) {
-    currentID = ID[IDn];
-    currentTextID = ButtonID;
+function updateLikeCounter(IDn) {
     doCORSRequest({
         method: "GET",
-        url: "https://www.freevisitorcounters.com/en/home/stats/id/"+currentID,
-        data: ""
-    }, writeToCounter);
+        url: "https://www.freevisitorcounters.com/en/home/stats/id/"+CounterID[IDn][0],
+        data: "",
+        IDn: IDn
+    }, writeToLikeCounter);
 }
-function updateAll() {
-    let textBox = ["counter"];
-    for (var i = 0; i < textBox.length; i++) {
-        updateCounter(i, textBox[i]);
-    }
-}
-function writeToCounter(unfilteredText) {
+function writeToLikeCounter(unfilteredText, IDn) {
     console.log(unfilteredText);
+    console.log("writeToLikeCounter "+IDn);
     var lines = unfilteredText.split('\n');
-    console.log(lines.length);
     for (var i = 0; i < lines.length; i++) {
         if (lines[i] == "<td>All</td>") {
-            console.log("found plaintext hitcount at line "+i);
             var hitCount = lines[i+1].substring(lines[i+1].indexOf('>')+1, lines[i+1].lastIndexOf('<'));
             console.log(hitCount);
-            document.getElementById(currentTextID).innerHTML = hitCount;
+            document.getElementById("like_counter_"+IDn).innerHTML = hitCount;
+            currentCount[IDn][0] = hitCount;
         }
     }
 }
+function handleDislike(IDn) {
+    if (getCookie("voted") == "") {
+        alert("you already voted");
+    } else {
+        document.cookie = "voted=true; expires=Tue, 19 Jan 2038 03:14:07 UTC";
+        console.log("incrementing counter");
+        fetch("https://www.freevisitorcounters.com/en/home/counter/"+CounterID[IDn][1]+"/t/3").then(function(response) {}).then(function(data) {}).catch(function() {});
+        updateLikeCounter(IDn);
+        updateDislikeCounter(IDn);
+    }
+}
+function updateDislikeCounter(IDn) {
+    doCORSRequest({
+        method: "GET",
+        url: "https://www.freevisitorcounters.com/en/home/stats/id/"+CounterID[IDn][1],
+        data: "",
+        IDn: IDn
+    }, writeToDislikeCounter);
+}
+function writeToDislikeCounter(unfilteredText, IDn) {
+    console.log("writeToDislikeCounter "+IDn);
+    var lines = unfilteredText.split('\n');
+    for (var i = 0; i < lines.length; i++) {
+        if (lines[i] == "<td>All</td>") {
+            var hitCount = lines[i+1].substring(lines[i+1].indexOf('>')+1, lines[i+1].lastIndexOf('<'));
+            console.log(hitCount);
+            document.getElementById("dislike_counter_"+IDn).innerHTML = hitCount;
+            currentCount[IDn][1] = hitCount;
+        }
+    }
+}
+//-------------------------------------------------------------------------
+//Share box functions
+//-------------------------------------------------------------------------
+function shareBoxIn() {
+    document.getElementById("share_box").style["animation-name"] = "share_box_in";
+}
+function shareBoxOut() {
+    document.getElementById("share_box").style["animation-name"] = "share_box_out";
+}
+//-------------------------------------------------------------------------
