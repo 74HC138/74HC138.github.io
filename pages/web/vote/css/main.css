@@ -1,19 +1,50 @@
+body {
+    margin: 0;
+}
+.buttonLeft {
+    margin: 0;
+    border: 0;
+    padding: 4;
+    font-size: 25;
+    position: fixed;
+    left: 0px;
+    top: 45vh;
+}
+.buttonRight {
+    margin: 0;
+    border: 0;
+    padding: 4;
+    font-size: 25;
+    position: fixed;
+    right: 0px;
+    top: 45vh;
+}
 .container {
-    width: 100%;
 
+    position: relative;
+    margin-top: 20px;
+    height: auto;
 }
 .entry {
-    position: relative;
+    position: absolute;
     left: 100%;
     top: 0%;
     opacity: 0;
     background-color: darkgray;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
     animation-fill-mode: forwards;
+    width: 90%;
+    height: inherit;
+    margin: auto;
+    border-color: darkgray;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 6px;
+    padding: 2px;
 }
 @keyframes swipe_out_left {
     from {
-        left: 0%;
+        left: 5%;
         top: 0%;
         opacity: 1;
     }
@@ -25,7 +56,7 @@
 }
 @keyframes swipe_out_right {
     from {
-        left: 0%;
+        left: 5%;
         top: 0;
         opacity: 1;
     }
@@ -42,7 +73,7 @@
         opacity: 0;
     }
     to {
-        left: 0%;
+        left: 5%;
         top: 0%;
         opacity: 1;
     }
@@ -54,8 +85,31 @@
         opacity: 0;
     }
     to {
-        left: 0%;
+        left: 5%;
         top: 0%;
         opacity: 1;
     }
+}
+.navbar {
+    width: 100%;
+    background-color: green;
+    padding: 4px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+.navbar_item {
+    display: inline-table;
+    background-color: inherit;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.navbar_button {
+    display: inherit;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 2px;
+    border-radius: 4px;
+    text-align: center;
+    
 }

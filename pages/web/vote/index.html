@@ -10,9 +10,21 @@ get https://www.freevisitorcounters.com/en/home/stats/id/737672 [line(<td>All</t
         <script type="text/javascript" src="scripts/counter.js"></script>
     </head>
     <body onload="init()">
-        <button onclick="nextSlideRight()">next slide</button>
+        <!--
+        <button onclick="nextSlideRight()">next slide right</button> to right side of screen
+        <button onclick="nextSlideLeft()">next slide left</button> to left side of screen
+        -->
+        <div class="navbar">
+            <div class="navbar_item">
+                <h2 style="margin: 0">Votator</h2>
+            </div>
+            <div class="navbar_item" style="float: right">
+                <button class="navbar_button" onclick="handleShare()">Seite teilen</button>
+            </div>
+        </div>
         <div class="container">
-            <div class="entry">
+            <button onclick="nextSlideLeft()" class="buttonLeft"><</button>
+            <div class="entry" style="background-color: lightpink; border-color: lightpink;">
                 <h3 id="button" onclick="handlebutton(0, 'counter')">click to increment</h3>
                 <h3 id="counter">0</h3>
             </div>
@@ -25,6 +37,7 @@ get https://www.freevisitorcounters.com/en/home/stats/id/737672 [line(<td>All</t
             <div class="entry">
                 <h3>noch einer</h3>
             </div>
+            <button onclick="nextSlideRight()" class="buttonRight">></button>
         </div>
     </body>
 </html>

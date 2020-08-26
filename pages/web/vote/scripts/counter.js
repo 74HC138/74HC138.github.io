@@ -40,7 +40,7 @@ function getCookie(cname) {
 function init() {
     var entry = document.getElementsByClassName("entry")[0];
     entry.style.opacity = 1.0;
-    entry.style.left = "0%";
+    entry.style.left = "5%";
 
     if (getCookie("voted") == "") {
         //cookie not set, not voted yet
@@ -62,6 +62,13 @@ function nextSlideRight() {
     displayedEntry = displayedEntry + 1;
     if (displayedEntry >= document.getElementsByClassName("entry").length) displayedEntry = 0;
     document.getElementsByClassName("entry")[displayedEntry].style["animation-name"] = "swipe_in_right";
+}
+function nextSlideLeft() {
+    document.getElementsByClassName("entry")[displayedEntry].style["animation-name"] = "swipe_out_right";
+    document.getElementsByClassName("entry")[displayedEntry].style["opacity"] = 0;
+    displayedEntry = displayedEntry - 1;
+    if (displayedEntry < 0) displayedEntry = document.getElementsByClassName("entry").length - 1;
+    document.getElementsByClassName("entry")[displayedEntry].style["animation-name"] = "swipe_in_left";
 }
 
 function handlebutton(IDn, ButtonID) {
