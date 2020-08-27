@@ -18,24 +18,24 @@ get https://www.freevisitorcounters.com/en/home/stats/id/737672 [line(<td>All</t
             <div class="navbar_item">
                 <h2 style="margin: 0">Votator</h2>
             </div>
+            <div class="navbar_item" style="float: right; margin-right: 20px;">
+                <div style="display: inline-block;">
+                    <a href="whatsapp://send?text=Deine Stimme zählt%0Ahttps://arduino101.github.io/pages/web/vote" data-action="share/whatsapp/share"><img src="src/whatsapp_logo_icon_143476.png" style="height: 27px; width: auto;"></a>
+                </div>
+                <div style="display: inline-block;">
+                    <button style="padding: 0; border: 0; background-color: inherit;" onclick="toggleShareBox()"><img src="src/qrcodeminimono_105854.png" style="height: 27px; width: auto;"></button>
+                </div>
+            </div>
             <div class="navbar_item" style="float: right">
-                <button class="navbar_button" style="background-color: green;" onclick="shareBoxOut()">Seite teilen</button>
+                <h2 style="margin: 0;">Teilen</h2>
             </div>
         </div>
         <div class="share_box" id="share_box">
-            <h2 style="text-align: center;">Teile diese Umfrage mit deinen Freunden</h2>
-            <button onclick="shareBoxIn()" style="position: absolute; bottom: 8px; width: 90%; left: 5%;">close</button>
-            <div style="position: relative;" id="share_options_container">
-                <div style="width: 50%; border-color: black; border-style: solid; border-width: 2px; margin-right: -3px; margin-left: -3px; height:100%">
-                    <h3 style="text-align: center;">Per QR Code</h3>
-                    <img src="src/qrcode.png" id="share_box_qr">
-                </div>
-                <div id="share_box_whatsapp" style="width: 50%; border-color: black; border-style: solid; border-width: 2px; margin-left: -3px; margin-right: -3px;">
-                    <h3 style="text-align: center;">Oder Whatsapp</h3>
-                    <a>share via whatsapp</a>
-                </div>
-            </div>
+            <h2 style="text-align: center;">Teile diese Umfrage über einen QR Code</h2>
+            <button onclick="shareBoxIn()" style="position: absolute; bottom: 8px; width: 90%; left: 5%;">OK</button>
+            <img src="src/qrcode.png" style="margin-left: auto; margin-right: auto; display: block" class="qrcode_image">
         </div>
+        
         <div class="container">
             <button onclick="nextSlideLeft()" class="buttonLeft"><</button>
             <div class="entry" style="background-color: lightpink; border-color: lightpink;">

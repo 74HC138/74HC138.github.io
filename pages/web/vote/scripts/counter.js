@@ -4,6 +4,7 @@ let CounterID = [[738178, 738197], [738180, 738602], [738603, 738604], [738605, 
 let currentCount = [[0, 0], [0, 0], [0, 0], [0, 0]];
 var canVote = true;
 var displayedEntry = 0;
+var isShareMenuOpen = false;
 //-------------------------------------------------------------------------
 //Helper functions
 //-------------------------------------------------------------------------
@@ -45,7 +46,7 @@ function getCookie(cname) {
 function init() {
     var entry = document.getElementsByClassName("entry")[0];
     entry.style.opacity = 1.0;
-    entry.style.left = "5%";
+    entry.style.left = "4%";
 
     if (getCookie("voted") == "") {
         //cookie not set, not voted yet
@@ -155,9 +156,22 @@ function writeToDislikeCounter(unfilteredText, IDn) {
 //Share box functions
 //-------------------------------------------------------------------------
 function shareBoxIn() {
-    document.getElementById("share_box").style["animation-name"] = "share_box_in";
+    if (isShareMenuOpen == true) {
+        document.getElementById("share_box").style["animation-name"] = "share_box_in";
+        isShareMenuOpen = false;
+    }
 }
 function shareBoxOut() {
-    document.getElementById("share_box").style["animation-name"] = "share_box_out";
+    if (isShareMenuOpen == false) {
+        document.getElementById("share_box").style["animation-name"] = "share_box_out";
+        isShareMenuOpen = true;
+    }
+}
+function toggleShareBox() {
+    if (isShareMenuOpen == false) {
+        shareBoxOut();
+    } else {
+        shareBoxIn();
+    }
 }
 //-------------------------------------------------------------------------
